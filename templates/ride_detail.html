@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Ride Details{% endblock %}
+
+{% block content %}
+<div class="card shadow p-4">
+    <h3 class="mb-3">🚗 Ride Details</h3>
+    <p><strong>From:</strong> {{ ride.from_location }}</p>
+    <p><strong>To:</strong> {{ ride.to_location }}</p>
+    <p><strong>Date:</strong> {{ ride.travel_date.strftime('%d %B, %Y') }}</p>
+    <p><strong>Time:</strong> {{ ride.travel_time.strftime('%I:%M %p') }}</p>
+    <p><strong>Fare:</strong> {{ ride.fare if ride.fare else 'Free' }}</p>
+    <p><strong>Seats Available:</strong> {{ ride.seats_available }}</p>
+    <p><strong>Posted By:</strong> {{ ride.creator.name }}</p>
+    <hr>
+<h4>👥 People Sharing This Ride</h4>
+
+{% if ride_requests %}
+    <ul class="list-group">
+        {% for req in ride_requests %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>{{ req.user.name }}</strong> — {{ req.user.department }}<br>
+                    <small>Status: {{ req.status }}</small>
+                </div>
+                <span class="badge bg-primary rounded-pill">{{ req.user.blood_group }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p class="text-muted">No one has joined this ride yet.</p>
+{% endif %}
+
+
+    <a href="{{ url_for('ride_posts') }}" class="btn btn-secondary mt-3">🔙 Back to All Rides</a>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Create Ride Post{% endblock %}
+{% block content %}
+<div class="card shadow p-4">
+    <h3 class="mb-3">Create Ride & Fare-Sharing Post</h3>
+    <form method="POST">
+        <div class="row mb-3">
+            <div class="col">
+                <label for="from_location" class="form-label">From</label>
+                <input type="text" class="form-control" name="from_location" required>
+            </div>
+            <div class="col">
+                <label for="to_location" class="form-label">To</label>
+                <input type="text" class="form-control" name="to_location" required>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <label for="travel_date" class="form-label">Date</label>
+                <input type="date" class="form-control" name="travel_date" required>
+            </div>
+            <div class="col">
+                <label for="travel_time" class="form-label">Time</label>
+                <input type="time" class="form-control" name="travel_time" required>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="seats_available" class="form-label">Seats Available</label>
+            <input type="number" class="form-control" name="seats_available" required min="1">
+        </div>
+        <div class="mb-3">
+            <label for="fare_type" class="form-label">Type</label>
+            <select class="form-select" name="fare_type" required id="fare_type">
+                <option value="">Select Type</option>
+                <option value="fare-sharing">Looking to share fare (e.g., Uber/CNG)</option>
+                <option value="free">Car/Bike Ride</option>
+                <option value="safety">Looking for companion for safety</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="estimated_cost" class="form-label">
+                Estimated Cost (Optional)
+            </label>
+            <input type="number" step="0.01" class="form-control" name="estimated_cost" placeholder="E.g. 150.00">
+            <small class="text-muted">
+                Add a cost if you're sharing fares (e.g., Uber/CNG, Bike, or Car rides). Leave blank if it's a free or safety-only ride.
+            </small>
+        </div>
+        
+        
+        <div class="mb-3">
+            <label for="description" class="form-label">Additional Info</label>
+            <textarea class="form-control" name="description" rows="3"></textarea>
+        </div>
+        <button class="btn btn-primary">Post Ride</button>
+    </form>
+</div>
+
+{% endblock %}
