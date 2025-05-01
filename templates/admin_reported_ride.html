@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Reported Ride{% endblock %}
+
+{% block content %}
+<h2>Reported Ride Post</h2>
+<p>From: {{ ride.from_location }} | To: {{ ride.to_location }}</p>
+<p>Posted by: {{ ride.creator.name }}</p>
+<form action="{{ url_for('admin_delete_ride', ride_id=ride.id) }}" method="POST">
+    <button class="btn btn-danger" type="submit">Delete this Ride</button>
+</form>
+{% endblock %}
