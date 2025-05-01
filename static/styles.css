@@ -45,3 +45,16 @@ body {
   39% { transform: rotate(-1deg); }
   41% { transform: rotate(0deg); }
 }
+.card:hover .dropdown > button {
+    opacity: 1 !important;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body > .container {
+    flex: 1;
+}
