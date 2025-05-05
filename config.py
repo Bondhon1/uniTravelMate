@@ -3,3 +3,10 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 SECRET_KEY = 'your_secret_key'
 
+# Email Configuration (Brevo SMTP settings)
+MAIL_SERVER = 'smtp.gmail.com'
+MAIL_PORT = 587
+MAIL_USE_TLS = True
+MAIL_USERNAME = 'md.samir@g.bracu.ac.bd'  # Your email address
+MAIL_PASSWORD = 'nizb uxsv zuyv eqsu'     # Your generated app password
+MAIL_DEFAULT_SENDER = ('ride share', 'md.samir@g.bracu.ac.bd')
