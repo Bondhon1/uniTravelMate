@@ -2,6 +2,13 @@ SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://sql12775784:2XV7IU1ZKY@sql12.freesqld
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 SECRET_KEY = 'your_secret_key'
+SQLALCHEMY_ENGINE_OPTIONS = {
+    'pool_size': 5,
+    'max_overflow': 10,
+    'pool_timeout': 30,
+    'pool_recycle': 1800,       # recycle connections every 30 mins
+    'pool_pre_ping': True,      # test connections before using
+}
 
 # Email Configuration (Brevo SMTP settings)
 MAIL_SERVER = 'smtp.gmail.com'
